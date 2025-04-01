@@ -1,7 +1,6 @@
 package creature
 
 import (
-	"fmt"
 	"github.com/MsSabo/simulation/internal"
 	"github.com/MsSabo/simulation/internal/entity"
 	"github.com/MsSabo/simulation/internal/gameboard"
@@ -21,7 +20,6 @@ func (s *Sheep) GetSign() string {
 
 func (s *Sheep) Eat(gameboard *gameboard.Gameboard, cell internal.Cell) {
 	gameboard.RemoveEntity(cell)
-	fmt.Println("Sheep eated grass")
 }
 
 func (s *Sheep) Move(gameboard *gameboard.Gameboard) bool {
@@ -35,7 +33,6 @@ func (s *Sheep) Move(gameboard *gameboard.Gameboard) bool {
 	} else {
 		gameboard.Move(s.Cell, route[0])
 		s.Set(route[0].Get())
-		fmt.Println("Sheep move")
 	}
 
 	return true

@@ -1,0 +1,11 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<simulation>
+    <amount>
+        <grass>4</grass>
+        <tree>3</tree>
+        <rock>2</rock>
+        <herbove>3</herbove>
+        <predator>1</predator>
+    </amount>
+</simulation>

@@ -6,11 +6,11 @@ type Rock struct {
 	internal.Cell
 }
 
-func(g *Rock) GetSign() string {
+func (g *Rock) GetSign() string {
 	return "⛰️"
 }
 
-func NewRock(x, y int) *Rock{
+func NewRock(x, y int) *Rock {
 	g := Rock{internal.MakeCell(x, y)}
 	return &g
 }

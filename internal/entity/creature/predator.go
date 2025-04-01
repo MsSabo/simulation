@@ -1,7 +1,6 @@
 package creature
 
 import (
-	"fmt"
 	"github.com/MsSabo/simulation/internal"
 	"github.com/MsSabo/simulation/internal/gameboard"
 	pathfinder "github.com/MsSabo/simulation/internal/routebuilder"
@@ -20,11 +19,9 @@ func (s *Predator) GetSign() string {
 
 func (s *Predator) Eat(gameboard *gameboard.Gameboard, cell internal.Cell) {
 	gameboard.RemoveEntity(cell)
-	fmt.Println("Predator eat")
 }
 
 func (s *Predator) Move(gameboard *gameboard.Gameboard) bool {
-	fmt.Println("Lisa move")
 	route := predatorRoutebuilder.FindRoute(*gameboard, s.Cell)
 	if len(route) == 0 {
 		return false
