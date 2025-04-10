@@ -1,11 +1,24 @@
 
 <?xml version="1.0" encoding="UTF-8"?>
 <simulation>
-    <amount>
-        <grass>4</grass>
-        <tree>3</tree>
-        <rock>2</rock>
-        <herbove>3</herbove>
-        <predator>1</predator>
-    </amount>
+        <entity>
+            <name>grass</name>
+            <quantity>4</quantity>
+        </entity>
+        <entity>
+            <name>rock</name>
+            <quantity>1</quantity>
+        </entity>
+        <entity>
+            <name>tree</name>
+            <quantity>1</quantity>
+        </entity>
+        <entity>
+            <name>sheep</name>
+            <quantity>1</quantity>
+        </entity>
+        <entity>
+            <name>fox</name>
+            <quantity>1</quantity>
+        </entity>
 </simulation>
