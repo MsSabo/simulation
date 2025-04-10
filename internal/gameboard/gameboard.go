@@ -44,6 +44,10 @@ func (gameboard Gameboard) CellIsValid(c internal.Cell) bool {
 	return false
 }
 
+func (gameboard Gameboard) IsFree(c internal.Cell) bool {
+	return gameboard.Board[c] == nil
+}
+
 func (gameboard Gameboard) GetX() int {
 	return gameboard.xlength
 }

@@ -11,6 +11,7 @@ var predatorRoutebuilder = pathfinder.NewBfsRouteBuilder[*Sheep]()
 type Predator struct {
 	internal.Cell
 	animalParam
+	attack int
 }
 
 func (s *Predator) GetSign() string {
@@ -18,7 +19,16 @@ func (s *Predator) GetSign() string {
 }
 
 func (s *Predator) Eat(gameboard *gameboard.Gameboard, cell internal.Cell) {
-	gameboard.RemoveEntity(cell)
+	sheep, ok := gameboard.GetEntity(cell).(*Sheep)
+	if ok == false {
+		panic("Fox can't get entity")
+		return
+	}
+
+	sheep.DecreaseHealth(s.attack)
+	if sheep.health <= 0 {
+		gameboard.RemoveEntity(cell)
+	}
 }
 
 func (s *Predator) Move(gameboard *gameboard.Gameboard) bool {
@@ -38,6 +48,6 @@ func (s *Predator) Move(gameboard *gameboard.Gameboard) bool {
 }
 
 func NewPredator(x, y int) *Predator {
-	s := Predator{internal.MakeCell(x, y), animalParam{}}
+	s := Predator{internal.MakeCell(x, y), animalParam{}, 5}
 	return &s
 }

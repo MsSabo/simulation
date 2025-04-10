@@ -30,4 +30,11 @@ func GetAllAnimals(gb *gameboard.Gameboard) []Animal {
 
 type animalParam struct {
 	// @todo добавить различные параметры (скорость, штраф за голод и тп)
+	speed    int
+	health   int
+	calories int
+}
+
+func (state *animalParam) DecreaseHealth(damage int) {
+	state.health -= damage
 }

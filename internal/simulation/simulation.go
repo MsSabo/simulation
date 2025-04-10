@@ -21,7 +21,10 @@ type Simulation struct {
 func (s *Simulation) Init() {
 	s.init.Make(s.gb)
 	s.render.PrintGameBoard(s.gb)
-	fmt.Println("Map created")
+}
+
+func (s *Simulation) Print() {
+	s.render.PrintGameBoard(s.gb)
 }
 
 func (s *Simulation) Run(ctx context.Context, wg *sync.WaitGroup) {

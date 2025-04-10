@@ -33,6 +33,7 @@ func (builder *bfsRouteBuilder[Target]) FindRoute(gameboard gameboard.Gameboard,
 	queue := make([]internal.Cell, 0)
 	queue = append(queue, start)
 	var destination internal.Cell
+
 	for len(queue) > 0 {
 		destination = queue[0]
 		queue = queue[1:]
