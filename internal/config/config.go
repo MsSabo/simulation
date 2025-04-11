@@ -17,9 +17,14 @@ const (
 
 type Config struct {
 	XmlName xml.Name      `xml:"simulation"`
+	MapSize MapSize       `xml:"mapSize"`
 	Entity  []EntityParam `xml:"entity"`
 }
 
+type MapSize struct {
+	Xlength int `xml:"xlength"`
+	Ylength int `xml:"ylength"`
+}
 type EntityParam struct {
 	Name     string `xml:"name"`
 	Quantity int    `xml:"quantity"`

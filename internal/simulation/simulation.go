@@ -19,7 +19,7 @@ type Simulation struct {
 }
 
 func (s *Simulation) Init() {
-	s.init.Make(s.gb)
+	s.init.Make(&s.gb)
 	s.render.PrintGameBoard(s.gb)
 }
 
@@ -39,7 +39,7 @@ func (s *Simulation) Run(ctx context.Context, wg *sync.WaitGroup) {
 				fmt.Println("context canceled")
 				return
 			default:
-				s.move.Make(s.gb)
+				s.move.Make(&s.gb)
 				isOver = action.GameIsOver(s.gb)
 				s.counter++
 				fmt.Printf("simulation step = %d, over = %v\n", s.counter, isOver)

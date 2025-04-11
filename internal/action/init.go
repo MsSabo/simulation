@@ -31,13 +31,15 @@ func createEntity(name string, x, y int) entity.Entity {
 	}
 }
 
-func (a *initAction) Make(g gameboard.Gameboard) {
+func (a *initAction) Make(g *gameboard.Gameboard) {
 	cfg, err := config.ParseConfig("../internal/config/config.xml")
 
 	if err != nil {
 		panic(err)
 	}
 
+	*g = gameboard.NewGameboard(cfg.MapSize.Xlength, cfg.MapSize.Ylength)
+	fmt.Println("Size = ", g.GetX())
 	rand := rand.New(rand.NewSource(time.Now().UnixNano()))
 
 	for _, param := range cfg.Entity {

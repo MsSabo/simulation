@@ -8,7 +8,7 @@ import (
 )
 
 type Action interface {
-	Make(gb gameboard.Gameboard)
+	Make(gb *gameboard.Gameboard)
 }
 
 // / Вынести это в интерфейс
