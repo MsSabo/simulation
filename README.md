@@ -11,5 +11,3 @@ Run project windows:
 
 You can config simulation via xml file
 @TODO 
-Довести до ума генерацию существ
-Настройку карты пользователем вывести в файл
