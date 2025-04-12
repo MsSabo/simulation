@@ -11,7 +11,7 @@ type Action interface {
 	Make(gb *gameboard.Gameboard)
 }
 
-// / Вынести это в интерфейс
+// / @todo вынести в нужное место
 func GameIsOver(gb gameboard.Gameboard) bool {
 	sheep := creature.NewSheep(0, 0)
 

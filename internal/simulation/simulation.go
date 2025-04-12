@@ -36,7 +36,7 @@ func (s *Simulation) Run(ctx context.Context, wg *sync.WaitGroup) {
 		for isOver {
 			select {
 			case <-ctx.Done():
-				fmt.Println("context canceled")
+				fmt.Println("Simulation canceled")
 				return
 			default:
 				s.move.Make(&s.gb)
