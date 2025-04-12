@@ -15,8 +15,8 @@ type renderImpl struct {
 }
 
 func (r *renderImpl) PrintGameBoard(g gameboard.Gameboard) {
-	xlength := g.GetX()
-	ylength := g.GetY()
+	xlength := g.Row()
+	ylength := g.Columnt()
 
 	for i := range xlength {
 		for j := range ylength {

@@ -6,13 +6,13 @@ import (
 )
 
 type Gameboard struct {
-	xlength int
-	ylength int
-	Board   map[internal.Cell]entity.Entity // @todo скрыть
+	row    int
+	column int
+	Board  map[internal.Cell]entity.Entity // @todo скрыть
 }
 
-func NewGameboard(x, y int) Gameboard {
-	return Gameboard{x, y, make(map[internal.Cell]entity.Entity)}
+func NewGameboard(row, column int) Gameboard {
+	return Gameboard{row, column, make(map[internal.Cell]entity.Entity)}
 }
 
 func (gameboard *Gameboard) AddEntity(c internal.Cell, e entity.Entity) {
@@ -37,7 +37,7 @@ func (gameboard *Gameboard) GetEntity(c internal.Cell) entity.Entity {
 }
 
 func (gameboard Gameboard) CellIsValid(c internal.Cell) bool {
-	if x, y := c.Get(); x >= 0 && x < gameboard.xlength && y >= 0 && y < gameboard.ylength {
+	if x, y := c.Get(); x >= 0 && x < gameboard.row && y >= 0 && y < gameboard.column {
 		return true
 	}
 
@@ -48,10 +48,10 @@ func (gameboard Gameboard) IsFree(c internal.Cell) bool {
 	return gameboard.Board[c] == nil
 }
 
-func (gameboard Gameboard) GetX() int {
-	return gameboard.xlength
+func (gameboard Gameboard) Row() int {
+	return gameboard.row
 }
 
-func (gameboard Gameboard) GetY() int {
-	return gameboard.ylength
+func (gameboard Gameboard) Columnt() int {
+	return gameboard.column
 }

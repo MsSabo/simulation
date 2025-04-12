@@ -1,7 +1,6 @@
 package action
 
 import (
-	"fmt"
 	"github.com/MsSabo/simulation/internal"
 	"github.com/MsSabo/simulation/internal/config"
 	"github.com/MsSabo/simulation/internal/entity"
@@ -39,16 +38,14 @@ func (a *initAction) Make(g *gameboard.Gameboard) {
 	}
 
 	*g = gameboard.NewGameboard(cfg.MapSize.Xlength, cfg.MapSize.Ylength)
-	fmt.Println("Size = ", g.GetX())
 	rand := rand.New(rand.NewSource(time.Now().UnixNano()))
 
 	for _, param := range cfg.Entity {
-		fmt.Printf("Create %s count %d \n", param.Name, param.Quantity)
 		for _ = range param.Quantity {
 			var x, y int
 
 			for ok := false; !ok; ok = g.IsFree(internal.MakeCell(x, y)) {
-				x, y = rand.Intn(g.GetX()), rand.Intn(g.GetY())
+				x, y = rand.Intn(g.Row()), rand.Intn(g.Columnt())
 			}
 			ent := createEntity(param.Name, x, y)
 			g.AddEntity(internal.MakeCell(x, y), ent)
