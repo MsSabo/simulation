@@ -6,11 +6,11 @@ type Grass struct {
 	internal.Cell
 }
 
-func(g *Grass) GetSign() string {
-	return "🍀"
+func (g *Grass) GetSign() string {
+	return GrassSigns
 }
 
-func NewGrass(x, y int) *Grass{
+func NewGrass(x, y int) *Grass {
 	g := Grass{internal.MakeCell(x, y)}
 	return &g
 }

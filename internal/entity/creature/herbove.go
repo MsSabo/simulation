@@ -15,7 +15,7 @@ type Sheep struct {
 }
 
 func (s *Sheep) GetSign() string {
-	return "🐑"
+	return entity.SheepSigns
 }
 
 func (s *Sheep) Eat(gameboard *gameboard.Gameboard, cell internal.Cell) {

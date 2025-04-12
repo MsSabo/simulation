@@ -2,6 +2,7 @@ package creature
 
 import (
 	"github.com/MsSabo/simulation/internal"
+	"github.com/MsSabo/simulation/internal/entity"
 	"github.com/MsSabo/simulation/internal/gameboard"
 	pathfinder "github.com/MsSabo/simulation/internal/routebuilder"
 )
@@ -15,7 +16,7 @@ type Predator struct {
 }
 
 func (s *Predator) GetSign() string {
-	return "🦊"
+	return entity.FoxSigns
 }
 
 func (s *Predator) Eat(gameboard *gameboard.Gameboard, cell internal.Cell) {

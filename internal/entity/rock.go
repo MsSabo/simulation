@@ -7,7 +7,7 @@ type Rock struct {
 }
 
 func (g *Rock) GetSign() string {
-	return "⛰️"
+	return RockSigns
 }
 
 func NewRock(x, y int) *Rock {
