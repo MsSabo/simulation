@@ -10,7 +10,6 @@ import (
 var sheepRoutebuilder = pathfinder.NewBfsRouteBuilder[*entity.Grass]()
 
 type Sheep struct {
-	internal.Cell
 	animalParam
 }
 
@@ -22,8 +21,8 @@ func (s *Sheep) Eat(gameboard *gameboard.Gameboard, cell internal.Cell) {
 	gameboard.RemoveEntity(cell)
 }
 
-func (s *Sheep) Move(gameboard *gameboard.Gameboard) bool {
-	route := sheepRoutebuilder.FindRoute(*gameboard, s.Cell)
+func (s *Sheep) Move(gameboard *gameboard.Gameboard, start internal.Cell) bool {
+	route := sheepRoutebuilder.FindRoute(*gameboard, start)
 
 	if len(route) == 0 {
 		return false
@@ -32,14 +31,13 @@ func (s *Sheep) Move(gameboard *gameboard.Gameboard) bool {
 	if len(route) == 1 {
 		s.Eat(gameboard, route[0])
 	} else {
-		gameboard.Move(s.Cell, route[0])
-		s.Set(route[0].Get())
+		gameboard.Move(start, route[0])
 	}
 
 	return true
 }
 
 func NewSheep(x, y int) *Sheep {
-	s := Sheep{internal.MakeCell(x, y), animalParam{speed: 1, health: 15, calories: 0}}
+	s := Sheep{animalParam{speed: 1, health: 15, calories: 0}}
 	return &s
 }

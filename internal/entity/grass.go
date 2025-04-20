@@ -1,9 +1,6 @@
 package entity
 
-import "github.com/MsSabo/simulation/internal"
-
 type Grass struct {
-	internal.Cell
 }
 
 func (g *Grass) GetSign() string {
@@ -11,6 +8,6 @@ func (g *Grass) GetSign() string {
 }
 
 func NewGrass(x, y int) *Grass {
-	g := Grass{internal.MakeCell(x, y)}
+	g := Grass{}
 	return &g
 }

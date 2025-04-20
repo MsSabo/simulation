@@ -1,9 +1,6 @@
 package entity
 
-import "github.com/MsSabo/simulation/internal"
-
 type Tree struct {
-	internal.Cell
 }
 
 func (g *Tree) GetSign() string {
@@ -11,6 +8,6 @@ func (g *Tree) GetSign() string {
 }
 
 func NewTree(x, y int) *Tree {
-	g := Tree{internal.MakeCell(x, y)}
+	g := Tree{}
 	return &g
 }

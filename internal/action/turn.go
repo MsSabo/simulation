@@ -10,7 +10,7 @@ type MoveAll struct{}
 func (m *MoveAll) Make(g *gameboard.Gameboard) {
 	animals := creature.GetAllAnimals(g)
 	for _, obj := range animals {
-		obj.Move(g)
+		obj.Animal.Move(g, obj.Cell)
 	}
 }
 

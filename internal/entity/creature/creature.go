@@ -9,18 +9,23 @@ import (
 type Animal interface {
 	entity.Entity
 	Eat(gameboard *gameboard.Gameboard, cell internal.Cell)
-	Move(gameboard *gameboard.Gameboard) bool
+	Move(gameboard *gameboard.Gameboard, cell internal.Cell) bool
 }
 
-func GetAllAnimals(gb *gameboard.Gameboard) []Animal {
-	var animals []Animal
+type AnimalsCoordinates struct {
+	Cell   internal.Cell
+	Animal Animal
+}
 
-	for _, val := range gb.Board {
+func GetAllAnimals(gb *gameboard.Gameboard) []AnimalsCoordinates {
+	var animals []AnimalsCoordinates
+
+	for cell, val := range gb.Board {
 		switch val.(type) {
 		case *Sheep:
-			animals = append(animals, val.(Animal))
+			animals = append(animals, AnimalsCoordinates{cell, val.(Animal)})
 		case *Predator:
-			animals = append(animals, val.(Animal))
+			animals = append(animals, AnimalsCoordinates{cell, val.(Animal)})
 		default:
 		}
 	}
