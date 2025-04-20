@@ -5,6 +5,7 @@ import (
 
 	"github.com/MsSabo/simulation/internal"
 	"github.com/MsSabo/simulation/internal/gameboard"
+	"github.com/mattn/go-runewidth"
 )
 
 type Render interface {
@@ -14,6 +15,16 @@ type Render interface {
 type renderImpl struct {
 }
 
+func alignSign(sign string) string {
+	width := runewidth.StringWidth(sign)
+
+	if width%2 != 0 {
+		return sign + "."
+	}
+
+	return sign
+}
+
 func (r *renderImpl) PrintGameBoard(g gameboard.Gameboard) {
 	xlength := g.Row()
 	ylength := g.Columnt()
@@ -21,7 +32,7 @@ func (r *renderImpl) PrintGameBoard(g gameboard.Gameboard) {
 	for i := range xlength {
 		for j := range ylength {
 			if elem := g.GetEntity(internal.MakeCell(i, j)); elem != nil {
-				fmt.Print(elem.GetSign())
+				fmt.Print(alignSign(elem.GetSign()))
 			} else {
 				fmt.Print("..")
 			}

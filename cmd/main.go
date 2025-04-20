@@ -2,11 +2,12 @@ package main
 
 import (
 	"context"
-	"github.com/MsSabo/simulation/internal/simulation"
 	"os"
 	"os/signal"
 	"sync"
 	"syscall"
+
+	"github.com/MsSabo/simulation/internal/simulation"
 )
 
 var wg sync.WaitGroup
